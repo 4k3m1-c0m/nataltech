@@ -187,7 +187,7 @@ function renderNatal(natal) {
   if (!grid) return;
 
   grid.innerHTML = '';
-  const items = natal.slice(0, 3);
+  const items = natal.slice(0, 5);
 
   items.forEach(p => {
     const discountCalc = (p && p.old_price && p.new_price)
@@ -245,7 +245,7 @@ async function loadNatal() {
         .from('natal')
         .select('*')
         .order('created_at', { ascending: false })
-        .limit(3);
+        .limit(5);
 
       if (error) throw error;
       if (Array.isArray(data) && data.length) {
@@ -283,4 +283,5 @@ toastStyle.textContent = `
     to { transform: translateX(400px); opacity: 0; }
   }
 `;
+
 document.head.appendChild(toastStyle);
